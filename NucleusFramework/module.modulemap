@@ -1,0 +1,6 @@
+framework module NucleusFramework {
+    umbrella header "NucleusFramework.h"
+
+    export *
+    module * { export * }
+}
