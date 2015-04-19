@@ -6,9 +6,14 @@
 //  Copyright (c) 2015 Florian Marcu. All rights reserved.
 //
 
+public let kYoutubePlayerViewDidAppear = "kYoutubePlayerViewDidAppear"
+
 public class NLFYoutubePlayerViewController: NLFNucleusViewController, YTPlayerViewDelegate
 {
-    var youtubePlayerView = YTPlayerView()
+    let playerVars = ["playsinline" : true]
+
+    public var youtubePlayerView = YTPlayerView()
+    public var playerIsReady = false
     
     override public func viewDidAppear(animated: Bool)
     {
@@ -17,12 +22,15 @@ public class NLFYoutubePlayerViewController: NLFNucleusViewController, YTPlayerV
         self.youtubePlayerView.delegate = self;
         self.youtubePlayerView.frame = self.view.bounds
         view.addSubview(self.youtubePlayerView)
-        let playerVars = ["playsinline" : true]
-        self.youtubePlayerView.loadWithVideoId("b_QI94xu36s", playerVars: playerVars)
+        NSNotificationCenter.defaultCenter().postNotificationName(kYoutubePlayerViewDidAppear, object: self.youtubePlayerView)
     }
     
     public func playYoutubeVideo(videoID: String)
     {
-        //self.youtubePlayerView.loadWithVideoId(videoID)
+        self.youtubePlayerView.loadWithVideoId(videoID, playerVars: playerVars)
+    }
+
+    public func playerViewDidBecomeReady(playerView: YTPlayerView!) {
+        playerIsReady = true
     }
 }

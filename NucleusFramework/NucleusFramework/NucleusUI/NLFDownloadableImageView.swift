@@ -55,6 +55,8 @@ public class NLFDownloadableImageView: UIImageView
     @objc func didDownloadImage(notification: NSNotification)
     {
         let userInfo = notification.userInfo as Dictionary<String, UIImage>
-        self.image = userInfo["image"] as UIImage?
+        dispatch_async(dispatch_get_main_queue()) {
+            self.image = userInfo["image"] as UIImage?
+        }
     }
 }
