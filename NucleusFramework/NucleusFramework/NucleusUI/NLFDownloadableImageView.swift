@@ -11,13 +11,6 @@ public class NLFDownloadableImageView: UIImageView
     var internalURLString: String?
     var downloadManager = NLFDownloadManager()
 
-    public init (URLString: String)
-    {
-        super.init()
-        self.URLString = URLString
-        setup()
-    }
-
     required public init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -54,9 +47,11 @@ public class NLFDownloadableImageView: UIImageView
     
     @objc func didDownloadImage(notification: NSNotification)
     {
-        let userInfo = notification.userInfo as Dictionary<String, UIImage>
-        dispatch_async(dispatch_get_main_queue()) {
-            self.image = userInfo["image"] as UIImage?
+        if (notification.userInfo != nil) {
+            let userInfo = notification.userInfo as! Dictionary<String, UIImage>
+            dispatch_async(dispatch_get_main_queue()) {
+                self.image = userInfo["image"] as UIImage?
+            }
         }
     }
 }
