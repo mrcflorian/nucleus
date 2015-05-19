@@ -11,12 +11,18 @@ public class NLFDownloadableImageView: UIImageView
     var internalURLString: String?
     var downloadManager = NLFDownloadManager()
 
+    public init()
+    {
+        super.init(image: nil, highlightedImage: nil)
+        setup()
+    }
+
     required public init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     func setup()
     {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDownloadImage:", name: kNLFDownloadManagerDidDownloadImage, object: downloadManager)

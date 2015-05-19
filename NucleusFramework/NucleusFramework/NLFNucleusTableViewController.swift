@@ -8,9 +8,12 @@
 
 import UIKit
 
+let kNLFNucleusTableViewCellDefaultHeight: CGFloat = 30.0
+
 public protocol NLFTableRowAdapterProtocol
 {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> UITableViewCell
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> CGFloat
 }
 
 public class NLFNucleusTableViewController: UITableViewController
@@ -34,7 +37,20 @@ public class NLFNucleusTableViewController: UITableViewController
         }
         return UITableViewCell()
     }
-    
+
+    public override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let objects = self.objects()
+        if (indexPath.row < objects.count) {
+            var object: AnyObject = objects[indexPath.row]
+            for (adapter,classRef) in adaptersArray {
+                if (object.isKindOfClass(classRef)) {
+                    return adapter.tableView(tableView, heightForRowAtIndexPath: indexPath, object: object)
+                }
+            }
+        }
+        return kNLFNucleusTableViewCellDefaultHeight
+    }
+
     public func objects() -> [AnyObject] {
         assert(false)
     }
