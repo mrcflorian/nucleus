@@ -15,6 +15,8 @@
 		170BFA6F1AD5DD7600BFFEAC /* NLFURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFA6D1AD5DD7600BFFEAC /* NLFURLSession.swift */; };
 		171086641B0E4BD300D282C4 /* NLFNucleusLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171086631B0E4BD300D282C4 /* NLFNucleusLocationManager.swift */; };
 		171086661B0E4BFD00D282C4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171086651B0E4BFD00D282C4 /* CoreLocation.framework */; };
+		1710866D1B0E760300D282C4 /* NLFNucleusStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710866C1B0E760300D282C4 /* NLFNucleusStream.swift */; };
+		1710866F1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710866E1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift */; };
 		174224DD1AE2A13700488F86 /* NLFYoutubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174224DC1AE2A13700488F86 /* NLFYoutubePlayerViewController.swift */; };
 		174224E11AE2A21300488F86 /* NLFYoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174224E01AE2A21300488F86 /* NLFYoutubePlayerView.swift */; };
 		174224E41AE2CC1B00488F86 /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 174224E21AE2CC1B00488F86 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +52,8 @@
 		170BFA6D1AD5DD7600BFFEAC /* NLFURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFURLSession.swift; sourceTree = "<group>"; };
 		171086631B0E4BD300D282C4 /* NLFNucleusLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusLocationManager.swift; sourceTree = "<group>"; };
 		171086651B0E4BFD00D282C4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1710866C1B0E760300D282C4 /* NLFNucleusStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusStream.swift; sourceTree = "<group>"; };
+		1710866E1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusStreamifiedTableViewController.swift; sourceTree = "<group>"; };
 		174224DC1AE2A13700488F86 /* NLFYoutubePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NLFYoutubePlayerViewController.swift; path = NucleusPlugins/NucleusYoutubePlayer/NLFYoutubePlayerViewController.swift; sourceTree = "<group>"; };
 		174224E01AE2A21300488F86 /* NLFYoutubePlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NLFYoutubePlayerView.swift; path = NucleusPlugins/NucleusYoutubePlayer/NLFYoutubePlayerView.swift; sourceTree = "<group>"; };
 		174224E21AE2CC1B00488F86 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				17A0C8041ADB1AEA002F5AF8 /* NLFDownloadManager.swift */,
 				178481D31B0BC84C002D1B4A /* NLFNucleusNavigationController.swift */,
 				171086631B0E4BD300D282C4 /* NLFNucleusLocationManager.swift */,
+				1710866C1B0E760300D282C4 /* NLFNucleusStream.swift */,
+				1710866E1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift */,
 			);
 			path = NucleusFramework;
 			sourceTree = "<group>";
@@ -297,7 +303,9 @@
 				170BFA6E1AD5DD7600BFFEAC /* NLFURLSession.swift in Sources */,
 				171086641B0E4BD300D282C4 /* NLFNucleusLocationManager.swift in Sources */,
 				17A02F031AD9B19100D13B2F /* NLFNucleusEndpointsManager.swift in Sources */,
+				1710866D1B0E760300D282C4 /* NLFNucleusStream.swift in Sources */,
 				17A02EFF1AD9AE9700D13B2F /* NLFNucleusAPIRequest.swift in Sources */,
+				1710866F1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

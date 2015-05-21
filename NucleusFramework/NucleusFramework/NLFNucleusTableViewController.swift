@@ -19,7 +19,7 @@ public protocol NLFTableRowAdapterProtocol
 public class NLFNucleusTableViewController: UITableViewController
 {
     var adaptersArray: [(adapter: NLFTableRowAdapterProtocol, classRef: AnyClass)] = []
-    
+
     public func use(adapter: NLFTableRowAdapterProtocol, classRef: AnyClass)
     {
         adaptersArray.append(adapter: adapter, classRef: classRef)

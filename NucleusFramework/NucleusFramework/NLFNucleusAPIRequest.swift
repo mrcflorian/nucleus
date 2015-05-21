@@ -7,7 +7,7 @@
 //
 
 public class NLFNucleusAPIRequest: NSObject {
-    var path: String
+    let path: String
     var params: Dictionary <String, String>?
     public init(params: Dictionary <String, String>?, path: String)
     {
