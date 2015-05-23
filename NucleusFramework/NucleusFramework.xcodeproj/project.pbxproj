@@ -29,6 +29,11 @@
 		17A02F031AD9B19100D13B2F /* NLFNucleusEndpointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A02F021AD9B19100D13B2F /* NLFNucleusEndpointsManager.swift */; };
 		17A0C8051ADB1AEA002F5AF8 /* NLFDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0C8041ADB1AEA002F5AF8 /* NLFDownloadManager.swift */; };
 		17A0C8081ADDC9D3002F5AF8 /* NLFDownloadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0C8071ADDC9D3002F5AF8 /* NLFDownloadableImageView.swift */; };
+		17C4C1441B10901E0091D9B6 /* NLFNucleusFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C1431B10901E0091D9B6 /* NLFNucleusFormTableViewController.swift */; };
+		17C4C1481B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C1471B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift */; };
+		17C4C14A1B1092720091D9B6 /* NLFNucleusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C1491B1092720091D9B6 /* NLFNucleusTableViewCell.swift */; };
+		17C4C14C1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */; };
+		17C4C14E1B1098C10091D9B6 /* NLFNucleusTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C14D1B1098C10091D9B6 /* NLFNucleusTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		17A02F021AD9B19100D13B2F /* NLFNucleusEndpointsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusEndpointsManager.swift; sourceTree = "<group>"; };
 		17A0C8041ADB1AEA002F5AF8 /* NLFDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFDownloadManager.swift; sourceTree = "<group>"; };
 		17A0C8071ADDC9D3002F5AF8 /* NLFDownloadableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NLFDownloadableImageView.swift; path = NucleusUI/NLFDownloadableImageView.swift; sourceTree = "<group>"; };
+		17C4C1431B10901E0091D9B6 /* NLFNucleusFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusFormTableViewController.swift; sourceTree = "<group>"; };
+		17C4C1471B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusFormTableViewCell.swift; sourceTree = "<group>"; };
+		17C4C1491B1092720091D9B6 /* NLFNucleusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTableViewCell.swift; sourceTree = "<group>"; };
+		17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTextFieldFormCell.swift; sourceTree = "<group>"; };
+		17C4C14D1B1098C10091D9B6 /* NLFNucleusTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +168,7 @@
 		174224DE1AE2A13C00488F86 /* Nucleus Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				17C4C1451B1091160091D9B6 /* Nucleus Form */,
 				174224DF1AE2A15D00488F86 /* Nucleus Youtube Player */,
 			);
 			name = "Nucleus Plugins";
@@ -178,8 +189,28 @@
 			isa = PBXGroup;
 			children = (
 				17A0C8071ADDC9D3002F5AF8 /* NLFDownloadableImageView.swift */,
+				17C4C1491B1092720091D9B6 /* NLFNucleusTableViewCell.swift */,
+				17C4C14D1B1098C10091D9B6 /* NLFNucleusTextView.swift */,
 			);
 			name = NucleusUI;
+			sourceTree = "<group>";
+		};
+		17C4C1451B1091160091D9B6 /* Nucleus Form */ = {
+			isa = PBXGroup;
+			children = (
+				17C4C1461B10921F0091D9B6 /* Nucleus Form UI */,
+				17C4C1431B10901E0091D9B6 /* NLFNucleusFormTableViewController.swift */,
+			);
+			name = "Nucleus Form";
+			sourceTree = "<group>";
+		};
+		17C4C1461B10921F0091D9B6 /* Nucleus Form UI */ = {
+			isa = PBXGroup;
+			children = (
+				17C4C1471B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift */,
+				17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */,
+			);
+			name = "Nucleus Form UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +325,7 @@
 				17A02EFD1AD9ADA900D13B2F /* NLFNucleusTableViewController.swift in Sources */,
 				174224E51AE2CC1B00488F86 /* YTPlayerView.m in Sources */,
 				178481D41B0BC84C002D1B4A /* NLFNucleusNavigationController.swift in Sources */,
+				17C4C14C1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift in Sources */,
 				17A02EFB1AD9AD3C00D13B2F /* NLFNucleusViewController.swift in Sources */,
 				170BFA6C1AD5DCCB00BFFEAC /* NLFNucleusAPI.swift in Sources */,
 				174224DD1AE2A13700488F86 /* NLFYoutubePlayerViewController.swift in Sources */,
@@ -303,8 +335,12 @@
 				170BFA6E1AD5DD7600BFFEAC /* NLFURLSession.swift in Sources */,
 				171086641B0E4BD300D282C4 /* NLFNucleusLocationManager.swift in Sources */,
 				17A02F031AD9B19100D13B2F /* NLFNucleusEndpointsManager.swift in Sources */,
+				17C4C1441B10901E0091D9B6 /* NLFNucleusFormTableViewController.swift in Sources */,
 				1710866D1B0E760300D282C4 /* NLFNucleusStream.swift in Sources */,
+				17C4C1481B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift in Sources */,
 				17A02EFF1AD9AE9700D13B2F /* NLFNucleusAPIRequest.swift in Sources */,
+				17C4C14A1B1092720091D9B6 /* NLFNucleusTableViewCell.swift in Sources */,
+				17C4C14E1B1098C10091D9B6 /* NLFNucleusTextView.swift in Sources */,
 				1710866F1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,5 +8,10 @@
 
 import UIKit
 
-public class NLFNucleusNavigationController: UINavigationController {
+public class NLFNucleusNavigationController: UINavigationController
+{
+    public func didTapCancelButton(sender: AnyObject)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
