@@ -19,6 +19,7 @@ public protocol NLFTableRowAdapterProtocol
 public class NLFNucleusTableViewController: UITableViewController
 {
     var adaptersArray: [(adapter: NLFTableRowAdapterProtocol, classRef: AnyClass)] = []
+    var backingObjects: [AnyObject]?
 
     public func use(adapter: NLFTableRowAdapterProtocol, classRef: AnyClass)
     {
@@ -51,7 +52,31 @@ public class NLFNucleusTableViewController: UITableViewController
         return kNLFNucleusTableViewCellDefaultHeight
     }
 
+    public func addItem(item: AnyObject) {
+        if (backingObjects == nil) {
+            backingObjects = [item]
+        } else {
+            backingObjects?.append(item)
+        }
+    }
+
     public func objects() -> [AnyObject] {
-        assert(false)
+        if (backingObjects != nil) {
+            return backingObjects!
+        }
+        return []
+    }
+
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+
+    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        if (nil != self.backingObjects) {
+            return self.backingObjects!.count
+        }
+        return 0
     }
 }
