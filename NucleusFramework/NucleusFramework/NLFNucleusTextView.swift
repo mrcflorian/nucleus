@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kNLFNucleusTextViewPlaceHolderLeftMargin: CGFloat = 10.0
+
 public class NLFNucleusTextView: UITextView, UITextViewDelegate
 {
     let placeHolderLabel = UILabel()
@@ -23,7 +25,7 @@ public class NLFNucleusTextView: UITextView, UITextViewDelegate
 
     public override func layoutSubviews() {
         let labelSize = placeHolderLabel.sizeThatFits(self.bounds.size)
-        placeHolderLabel.frame = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, labelSize.width, labelSize.height)
+        placeHolderLabel.frame = CGRectMake(self.bounds.origin.x + self.textContainerInset.left + kNLFNucleusTextViewPlaceHolderLeftMargin, self.bounds.origin.y + self.textContainerInset.top, labelSize.width, labelSize.height)
     }
 
     public required init(coder aDecoder: NSCoder) {

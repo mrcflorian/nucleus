@@ -10,12 +10,14 @@ public class NLFNucleusAPI: NSObject {
     public class func request(request: NLFNucleusAPIRequest, completion: ((NSData!, NSURLResponse!, NSError!) -> Void)?)
     {
         let url = NSURL(string: NLFNucleusAPI.urlString(request))
-        let task = NLFURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            if completion != nil {
-                completion! (data, response, error)
+        if (url != nil) {
+            let task = NLFURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+                if completion != nil {
+                    completion! (data, response, error)
+                }
             }
+            task.resume()
         }
-        task.resume()
     }
     
     class func urlString(request: NLFNucleusAPIRequest) -> String

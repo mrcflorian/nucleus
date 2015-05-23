@@ -21,12 +21,16 @@ public class NLFNucleusTextFieldFormCell: NLFNucleusFormTableViewCell {
         self.layoutMargins = UIEdgeInsetsZero
         self.separatorInset = UIEdgeInsetsMake(0, self.bounds.size.width, 0, 0)
         self.textView = NLFNucleusTextView(placeHolderString: placeHolderText)
+        self.textView!.font = UIFont.systemFontOfSize(16)
         self.addSubview(self.textView!)
     }
 
-    public required init(coder aDecoder: NSCoder)
-    {
+    public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    public func textValue() -> String {
+        return self.textView!.text;
     }
 
     public override func layoutSubviews() {
