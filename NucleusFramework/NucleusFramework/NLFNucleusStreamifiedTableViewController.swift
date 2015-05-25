@@ -16,8 +16,7 @@ public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewContro
         }
     }
 
-    public init (apiRequest: NLFNucleusAPIRequest, jsonDecoder: NLFNucleusJSONDecoder)
-    {
+    public init (apiRequest: NLFNucleusAPIRequest, jsonDecoder: NLFNucleusJSONDecoder) {
         stream = NLFNucleusStream(apiRequest: apiRequest, jsonDecoder: jsonDecoder)
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,9 +31,10 @@ public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewContro
         }
     }
 
-    func streamDidUpdate(notification: NSNotification)
-    {
-        self.tableView.reloadData()
+    func streamDidUpdate(notification: NSNotification) {
+        if (self.stream != nil && notification.object != nil && notification.object!.isEqual(self.stream!)) {
+            self.tableView.reloadData()
+        }
     }
 
     override public func objects() -> [AnyObject] {

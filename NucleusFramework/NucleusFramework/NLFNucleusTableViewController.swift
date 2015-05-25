@@ -12,8 +12,8 @@ let kNLFNucleusTableViewCellDefaultHeight: CGFloat = 30.0
 
 public protocol NLFTableRowAdapterProtocol
 {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> UITableViewCell
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> CGFloat
+    func tableView(tableView: UITableView, controller: UITableViewController, cellForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> UITableViewCell
+    func tableView(tableView: UITableView, controller: UITableViewController, heightForRowAtIndexPath indexPath: NSIndexPath, object: AnyObject) -> CGFloat
 }
 
 public class NLFNucleusTableViewController: UITableViewController
@@ -32,7 +32,7 @@ public class NLFNucleusTableViewController: UITableViewController
             var object: AnyObject = objects[indexPath.row]
             for (adapter,classRef) in adaptersArray {
                 if (object.isKindOfClass(classRef)) {
-                    return adapter.tableView(tableView, cellForRowAtIndexPath: indexPath, object: object)
+                    return adapter.tableView(tableView, controller: self, cellForRowAtIndexPath: indexPath, object: object)
                 }
             }
         }
@@ -45,7 +45,7 @@ public class NLFNucleusTableViewController: UITableViewController
             var object: AnyObject = objects[indexPath.row]
             for (adapter,classRef) in adaptersArray {
                 if (object.isKindOfClass(classRef)) {
-                    return adapter.tableView(tableView, heightForRowAtIndexPath: indexPath, object: object)
+                    return adapter.tableView(tableView, controller: self, heightForRowAtIndexPath: indexPath, object: object)
                 }
             }
         }
