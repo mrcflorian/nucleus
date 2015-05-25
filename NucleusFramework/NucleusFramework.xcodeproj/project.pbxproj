@@ -34,6 +34,7 @@
 		17C4C14A1B1092720091D9B6 /* NLFNucleusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C1491B1092720091D9B6 /* NLFNucleusTableViewCell.swift */; };
 		17C4C14C1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */; };
 		17C4C14E1B1098C10091D9B6 /* NLFNucleusTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C14D1B1098C10091D9B6 /* NLFNucleusTextView.swift */; };
+		17C4C1681B13B6A30091D9B6 /* NLFNucleusComposeCommentFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4C1671B13B6A30091D9B6 /* NLFNucleusComposeCommentFormCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		17C4C1491B1092720091D9B6 /* NLFNucleusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTableViewCell.swift; sourceTree = "<group>"; };
 		17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTextFieldFormCell.swift; sourceTree = "<group>"; };
 		17C4C14D1B1098C10091D9B6 /* NLFNucleusTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusTextView.swift; sourceTree = "<group>"; };
+		17C4C1671B13B6A30091D9B6 /* NLFNucleusComposeCommentFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLFNucleusComposeCommentFormCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				17C4C1471B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift */,
 				17C4C14B1B1097680091D9B6 /* NLFNucleusTextFieldFormCell.swift */,
+				17C4C1671B13B6A30091D9B6 /* NLFNucleusComposeCommentFormCell.swift */,
 			);
 			name = "Nucleus Form UI";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				1710866D1B0E760300D282C4 /* NLFNucleusStream.swift in Sources */,
 				17C4C1481B1092510091D9B6 /* NLFNucleusFormTableViewCell.swift in Sources */,
 				17A02EFF1AD9AE9700D13B2F /* NLFNucleusAPIRequest.swift in Sources */,
+				17C4C1681B13B6A30091D9B6 /* NLFNucleusComposeCommentFormCell.swift in Sources */,
 				17C4C14A1B1092720091D9B6 /* NLFNucleusTableViewCell.swift in Sources */,
 				17C4C14E1B1098C10091D9B6 /* NLFNucleusTextView.swift in Sources */,
 				1710866F1B0E84E900D282C4 /* NLFNucleusStreamifiedTableViewController.swift in Sources */,
