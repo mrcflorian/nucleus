@@ -12,9 +12,11 @@ let kNLFNucleusTextFieldFormCellDefaultHeight: CGFloat = 100.0
 
 public class NLFNucleusTextFieldFormCell: NLFNucleusFormTableViewCell {
     var textView: NLFNucleusTextView?
+    var cellHeight: CGFloat
 
-    public init(reuseIdentifier: String, placeHolderText: String?)
+    public init(reuseIdentifier: String, placeHolderText: String?, height: CGFloat = kNLFNucleusTextFieldFormCellDefaultHeight)
     {
+        self.cellHeight = height
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
 
         self.preservesSuperviewLayoutMargins = false
@@ -26,6 +28,7 @@ public class NLFNucleusTextFieldFormCell: NLFNucleusFormTableViewCell {
     }
 
     public required init(coder aDecoder: NSCoder) {
+        self.cellHeight = kNLFNucleusTextFieldFormCellDefaultHeight
         super.init(coder: aDecoder)
     }
 
@@ -38,7 +41,7 @@ public class NLFNucleusTextFieldFormCell: NLFNucleusFormTableViewCell {
     }
 
     public override func height() -> CGFloat {
-        return kNLFNucleusTextFieldFormCellDefaultHeight
+        return self.cellHeight
     }
 
     public override func becomeFirstResponder() -> Bool {
