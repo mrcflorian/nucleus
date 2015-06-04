@@ -41,7 +41,9 @@ public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewContro
 
     func streamDidUpdate(notification: NSNotification) {
         if (self.stream != nil && notification.object != nil && notification.object!.isEqual(self.stream!)) {
-            self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
         }
     }
 
