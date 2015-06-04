@@ -17,6 +17,7 @@ public class NLFNucleusStream: NSObject
     let apiRequest: NLFNucleusAPIRequest
     let jsonDecoder: NLFNucleusJSONDecoder
     var isLoading = false
+    var isLoadingTop = false
 
     public init(apiRequest: NLFNucleusAPIRequest, jsonDecoder: NLFNucleusJSONDecoder)
     {
@@ -24,6 +25,34 @@ public class NLFNucleusStream: NSObject
         self.jsonDecoder = jsonDecoder
         super.init()
     }
+
+    public func loadTop(batchSize: Int = kDefaultBatchSize)
+    {
+        if (self.isLoadingTop) {
+            return
+        }
+
+        if (apiRequest.params == nil) {
+            apiRequest.params = ["top_id":self.firstId()]
+        } else {
+            apiRequest.params!["top_id"] = String(self.firstId())
+        }
+
+        self.isLoading = true
+        NLFNucleusAPI.request(apiRequest) {(data, response, error) in
+            var resultArray = Array<AnyObject>()
+            let dictJSON = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil)
+            if let dictArray = dictJSON as? Array<NSDictionary> {
+                for jsonDictionary in dictArray {
+                    resultArray.append(self.jsonDecoder.decodeFromJSONDictionary(jsonDictionary))
+                }
+            }
+            self.objects = (resultArray + self.objects)
+            NSNotificationCenter.defaultCenter().postNotificationName(kNLFNucleusStreamDidUpdate, object:self)
+            self.isLoadingTop = false
+        }
+    }
+
 
     public func loadMore(batchSize: Int = kDefaultBatchSize)
     {
@@ -40,9 +69,11 @@ public class NLFNucleusStream: NSObject
         self.isLoading = true
         NLFNucleusAPI.request(apiRequest) {(data, response, error) in
             var resultArray = Array<AnyObject>()
-            var dictArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! Array<NSDictionary>
-            for jsonDictionary in dictArray {
-                resultArray.append(self.jsonDecoder.decodeFromJSONDictionary(jsonDictionary))
+            let dictJSON = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil)
+            if let dictArray = dictJSON as? Array<NSDictionary> {
+                for jsonDictionary in dictArray {
+                    resultArray.append(self.jsonDecoder.decodeFromJSONDictionary(jsonDictionary))
+                }
             }
             if (resultArray.count == 0) {
                 self.isFinished = true
@@ -53,9 +84,22 @@ public class NLFNucleusStream: NSObject
             self.isLoading = false
         }
     }
+
+    func firstId() -> String
+    {
+        if (count(self.objects) > 0) {
+            return (self.objects.first! as! NLFNucleusStreamableOject).getId()
+        }
+        return ""
+    }
 }
 
 public protocol NLFNucleusJSONDecoder
 {
-    func decodeFromJSONDictionary(jsonDictionary: NSDictionary) -> AnyObject
+    func decodeFromJSONDictionary(jsonDictionary: NSDictionary) -> NLFNucleusStreamableOject
+}
+
+public protocol NLFNucleusStreamableOject : AnyObject
+{
+    func getId() -> String
 }

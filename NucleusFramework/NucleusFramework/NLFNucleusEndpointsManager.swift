@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Florian Marcu. All rights reserved.
 //
 
-let kNucleusDefaultEndpointBaseURL = "http://hickery.net/api/"
+let kNucleusDefaultEndpointBaseURL = "http://localhost:9000/"
 
 class NLFNucleusEndpointsManager: NSObject {
 

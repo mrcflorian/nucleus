@@ -22,11 +22,13 @@ public class NLFNucleusAPI: NSObject {
     
     class func urlString(request: NLFNucleusAPIRequest) -> String
     {
-        var path = kNucleusDefaultEndpointBaseURL + request.path + "?"
+        var path = kNucleusDefaultEndpointBaseURL + request.path
         if request.params != nil {
             for (field, value) in request.params!
             {
-                path += field + "=" + value + "&"
+                if let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
+                    path += "/" + field + "/" + escapedValue
+                }
             }
         }
         return path

@@ -7,12 +7,14 @@
 //
 
 let kReachedBottomOffset: CGFloat = 0.0
+let kReachedTopOffset: CGFloat = 200.0
 
 public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewController {
+    public var hasPullToRefreshSupport = false
+
     public var stream: NLFNucleusStream? {
         didSet {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "streamDidUpdate:", name: kNLFNucleusStreamDidUpdate, object: stream)
-            stream!.loadMore()
         }
     }
 
@@ -31,6 +33,12 @@ public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewContro
         }
     }
 
+    public override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if (hasPullToRefreshSupport && scrollView.contentOffset.y <= -kReachedTopOffset) {
+            stream?.loadTop()
+        }
+    }
+
     func streamDidUpdate(notification: NSNotification) {
         if (self.stream != nil && notification.object != nil && notification.object!.isEqual(self.stream!)) {
             self.tableView.reloadData()
@@ -38,7 +46,7 @@ public class NLFNucleusStreamifiedTableViewController: NLFNucleusTableViewContro
     }
 
     override public func objects() -> [AnyObject] {
-        return self.stream!.objects
+        return self.stream!.objects as Array<AnyObject>
     }
 
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int
