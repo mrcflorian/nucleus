@@ -11,6 +11,7 @@ public class NLFNucleusAPI: NSObject {
     {
         let url = NSURL(string: NLFNucleusAPI.urlString(request))
         if (url != nil) {
+            NSLog("API request: %@", url!)
             let task = NLFURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
                 if completion != nil {
                     completion! (data, response, error)

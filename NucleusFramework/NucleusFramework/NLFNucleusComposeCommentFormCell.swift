@@ -11,7 +11,6 @@ import UIKit
 public class NLFNucleusComposeCommentFormCell: NLFNucleusTextFieldFormCell {
 
     var commentButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-
     public init(reuseIdentifier: String, placeHolderText: String?, buttonText: String?, height: CGFloat = kNLFNucleusTextFieldFormCellDefaultHeight) {
         super.init(reuseIdentifier: reuseIdentifier, placeHolderText: placeHolderText, height: height)
         self.commentButton.setTitle(buttonText, forState: UIControlState.Normal)
@@ -27,6 +26,10 @@ public class NLFNucleusComposeCommentFormCell: NLFNucleusTextFieldFormCell {
         let buttonSize = self.commentButton.sizeThatFits(self.bounds.size)
         self.commentButton.frame = CGRectMake(self.bounds.origin.x + self.bounds.width - buttonSize.width, self.bounds.origin.y + (self.bounds.height - buttonSize.height) / 2, buttonSize.width, buttonSize.height)
         self.textView?.frame = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.width - buttonSize.width, self.bounds.height)
+    }
+
+    public func addTarget(postingTarget: AnyObject?, postingAction: Selector) {
+        self.commentButton.addTarget(postingTarget, action: postingAction, forControlEvents: .TouchUpInside)
     }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 
 public class NLFNucleusFormTableViewController: UITableViewController
 {
-    let cellsArray: [NLFNucleusFormTableViewCell]?
+    public let cellsArray: [NLFNucleusFormTableViewCell]?
     public init(formCells: [NLFNucleusFormTableViewCell]) {
         cellsArray = formCells
         super.init(nibName: nil, bundle: nil)
