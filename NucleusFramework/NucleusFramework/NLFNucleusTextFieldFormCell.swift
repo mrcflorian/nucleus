@@ -36,6 +36,10 @@ public class NLFNucleusTextFieldFormCell: NLFNucleusFormTableViewCell {
         return self.textView!.text;
     }
 
+    public func resetValue() {
+        self.textView!.text = ""
+    }
+
     public override func layoutSubviews() {
         self.textView?.frame = self.bounds
     }

@@ -54,10 +54,14 @@ public class NLFNucleusStream: NSObject
     }
 
 
-    public func loadMore(batchSize: Int = kDefaultBatchSize)
+    public func loadMore(batchSize: Int = kDefaultBatchSize, forced: Bool = false)
     {
-        if (self.isFinished || self.isLoading) {
+        if ((self.isFinished && !forced) || self.isLoading) {
             return
+        }
+
+        if (self.isFinished && forced) {
+            self.isFinished = false
         }
 
         if (apiRequest.params == nil) {
@@ -75,6 +79,7 @@ public class NLFNucleusStream: NSObject
                     resultArray.append(self.jsonDecoder.decodeFromJSONDictionary(jsonDictionary))
                 }
             }
+            NSLog("%d", resultArray.count)
             if (resultArray.count == 0) {
                 self.isFinished = true
             } else {
